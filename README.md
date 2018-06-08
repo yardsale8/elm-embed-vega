@@ -7,7 +7,7 @@ in a node defined in an elm application.
 
 ## Base Application
 
-We started with the [Random Example]() from the elm guide and make the following
+I started with the [Random Example]() from the elm guide and make the following
 changes.
 
 * Make `dieFace` a `Maybe Int`.
