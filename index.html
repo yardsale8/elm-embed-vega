@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Embed Vega</title>
+
+  </head>
+
+    <!-- These scripts link to the Vega-Lite runtime -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+  <script src="main.js"></script>
+
+</head>
+<body>
+
+<div id="app"></div>
+<script>
+    var node = document.getElementById('app');
+    var app = Elm.EmbedVega.embed(node);
+
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+  let updateChart = function(spec){
+    console.log(spec);
+    requestAnimationFrame(function(){
+      vegaEmbed("#vis", spec, {actions: false}).catch(console.warn);
+      });
+   }
+
+    app.ports.elmToJS.subscribe(updateChart);
+</script>
+    
+</body>
+</html>
