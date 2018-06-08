@@ -119,7 +119,7 @@ elm-make src/EmbedVega.elm --output main.js
 
 ### Setting up `index.html`
 
-Following the advice found an answer to [this Stack Overflow
+Following the advice found in an answer to [this Stack Overflow
 question](https://stackoverflow.com/questions/38952724/how-to-coordinate-rendering-with-port-interactions-elm-0-17),
 I was able to get this all working using the following set up in html.
 
