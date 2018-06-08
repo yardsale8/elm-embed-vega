@@ -58,6 +58,35 @@ first line of the `EmbedVega.elm` file as follows
 port module EmbedVega exposing(elmToJS)
 ```
 
+To make use of this port, we need to add a command to the update function.  This
+can be accomplished while updating a `NewRoll` by passing the updated model
+through `spec` and `elmToJs`., as shown below.
+
+```elm
+update : Msg -> Model -> (Model, Cmd Msg)
+update msg model =
+  case msg of
+    Roll ->
+      (model, Random.generate NewFace (Random.int 1 6))
+
+    NewFace newFace ->
+        let
+            newModel = 
+                model
+                |> updateFace newFace
+                |> updateRolls newFace
+        in
+            (newModel, elmToJS (spec newModel))
+
+
+updateFace face model =
+    {model | dieFace = Just face}
+
+updateRolls face model =
+    {model | rolls = face :: model.rolls}
+
+```
+
 Finally, we need to create a labeled `div` in the view which will be used to
 attach the histogram.  We give this `div` the `id` of `"vis"`, which will be
 referenced in the associated html file.
@@ -80,6 +109,7 @@ showCurrentRoll model =
             h1 [] [ Html.text "Click Roll to roll the die"]
 
 ```
+
 
 This program will be compile to `main.js` using
 
