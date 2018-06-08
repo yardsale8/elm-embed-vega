@@ -167,7 +167,7 @@ The key things to note are
 
 1. The scripts that load `vega-lite` and `main.js` (the file created in the last
    step).
-2. Using `requestAnimationFrame` is used to sync the elm creating of the `"vis"`
+2. `requestAnimationFrame` is used to sync the elm creation of the `"vis"`
    element and the subsequent manipulation of this `div` by `vega-lite`.
 3. We pass `"#vis"` to `vegaEmbed` to embed the visualization in the correct
    location.
