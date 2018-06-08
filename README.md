@@ -141,4 +141,3 @@ The key things to note are
    element and the subsequent manipulation of this `div` by `vega-lite`.
 3. We pass `"#vis"` to `vegaEmbed` to embed the visualization in the correct
    location.
-# elm-embed-vega
