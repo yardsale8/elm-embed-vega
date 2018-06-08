@@ -22,7 +22,7 @@ data column labeled `X`, then sets of the proper encoding and specification.
 
 
 
-```
+```elm
 -- Vega Spec
 
 spec model =
@@ -45,7 +45,7 @@ spec model =
 
 The port, named `elmToJs`, is set up as follows.
 
-```
+```elm
 -- send spec to vega
 port elmToJS : Spec -> Cmd msg
 ```
@@ -54,7 +54,7 @@ Next, we need to make a `port` that will be used to pass this spec to the
 vega-lite runtime.  First, change the module to a port module by changing the
 first line of the `EmbedVega.elm` file as follows
 
-```
+```elm
 port module EmbedVega exposing(elmToJS)
 ```
 
@@ -62,7 +62,7 @@ Finally, we need to create a labeled `div` in the view which will be used to
 attach the histogram.  We give this `div` the `id` of `"vis"`, which will be
 referenced in the associated html file.
 
-```
+```elm
 view : Model -> Html Msg
 view model =
   div []
@@ -83,7 +83,7 @@ showCurrentRoll model =
 
 This program will be compile to `main.js` using
 
-```
+```bash
 elm-make src/EmbedVega.elm --output main.js
 ```
 
@@ -94,7 +94,7 @@ question](https://stackoverflow.com/questions/38952724/how-to-coordinate-renderi
 I was able to get this all working using the following set up in html.
 
 
-``` 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
